@@ -1,0 +1,26 @@
+<nav class="navbar">
+  <!-- Logo -->
+  <img src="../assets/images/tesla.svg" alt="Tesla Logo" class="h-6" />
+
+  <!-- Links -->
+  <div class="hidden lg:block">
+    <a href="#{{ link.id }}" class="nav_link" *ngFor="let link of links">
+      {{ link.text }}
+    </a>
+  </div>
+
+  <!-- Extend Links -->
+  <div>
+    <a
+      href="#{{ link.id }}"
+      *ngFor="let link of externalLinks"
+      [ngClass]="
+        link.id === 'Menu'
+          ? 'lg:hidden nav_link'
+          : 'nav_link hidden lg:inline-block '
+      "
+    >
+      {{ link.text }}
+    </a>
+  </div>
+</nav>
