@@ -1,0 +1,45 @@
+<section
+  *ngFor="let car of cars; let i = index"
+  [id]="car.id"
+  class="w-full h-screen relative"
+>
+  <img
+    src="../../assets/images/{{ car.id }}.jfif"
+    alt="{{ car.text }} Image"
+    class="w-full h-full object-cover"
+  />
+
+  <div class="absolute top-[20%] left-[50%] text-center transform_50">
+    <h1 class="text-[4rem] text-[#393c41] font-semibold">
+      {{ car.text }}
+    </h1>
+    <h2 class="text-[#4c4d51] text-2xl">
+      Order Online for
+      <span class="underline cursor-pointer">Touchless Delivery</span>
+    </h2>
+  </div>
+
+  <div
+    class="absolute top-[85%] left-[50%] flex flex-col lg:flex-row transform_50"
+  >
+    <button class="btn">Custom Order</button>
+    <button class="btn inventory">Existing Inventory</button>
+  </div>
+
+  <a href="#{{ cars[i + 1].id }}" *ngIf="cars.length !== i + 1">
+    <svg
+      class="block w-full h-20 mx-auto absolute top-[93%] animate-bounce"
+      viewBox="0 0 30 30"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        stroke="var(--tds-icon--fill, #171a20)"
+        stroke-width="1.5"
+        d="m19.5 12.5-4.5 4-4.5-4"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  </a>
+</section>
